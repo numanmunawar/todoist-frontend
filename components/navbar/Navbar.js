@@ -4,9 +4,7 @@ import Link from 'next/link'
 import inbox from '../../public/inbox-solid.svg'
 import calender from '../../public/calender.svg'
 import fav from '../../public/favIcon.svg'
-import task from '../../public/task.svg'
-import user from '../../public/user.svg'
-import pl from '/home/numan/next-js-tailwind/public/plus.svg'
+
 
 
 
@@ -23,12 +21,7 @@ class Navbar extends React.Component{
                 </div>
 
                 <div className="nav-right">
-                <Link href="/index  ">
-                    <div className="inbox">
-                    <img src={pl} alt="logo" className="image1" />
-                    </div>
-                </Link>
-                    <Link href="/">
+                     <Link href="/">
                         <div className="inbox">
                             <img src={inbox} alt="logo" className="image1" />
                         </div>
@@ -44,26 +37,12 @@ class Navbar extends React.Component{
                             <img src={fav} alt="logo" className="image1" />
                         </div>
                     </Link> 
-                    <Link href="/projects">
-                        <div className="inbox">
-                            <img src={task} alt="logo" className="image1" />
-                        </div>
-                    </Link> 
-                    <Link href="/signin">
-                        <div className="inbox"> 
-
-                            <img src={user} alt="logo" className="image1" />
-                        </div>
-                    </Link>
                 </div>
                 <style jsx>{`
 
                     .html{
                         margin:0px;
                         padding:0px;
-                    }
-
-                    
                     }
                     .navbar{
                         width:100%;
@@ -84,9 +63,6 @@ class Navbar extends React.Component{
                         justify-content: ;
                         background-color: #f6ad55;
 
-
-
-
                     }
                     .inbox{
                         width:30px;
@@ -106,12 +82,7 @@ class Navbar extends React.Component{
                         justify-content: flex-end;
                         padding-right:60px;
 
-
-
                       }
-                
-                
-                
                 `}</style>
             </div>
             </React.Fragment>

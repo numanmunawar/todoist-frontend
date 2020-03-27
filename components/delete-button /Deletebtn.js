@@ -1,6 +1,6 @@
 import React from 'react';
-import pl from '/home/numan/next-js-tailwind/public/minus.svg'
-import favIcon2 from "/home/numan/next-js-tailwind/public/favIcon2.svg"
+import pl from '/home/numan/todoist-frontend/public/minus.svg'
+import favIcon2 from "/home/numan/todoist-frontend/public/favIcon2.svg"
 
 
 
@@ -10,14 +10,18 @@ class Deletebtn extends React.Component{
         return(
             <React.Fragment>
                 <div className="eachTask"> 
-                    <button className="buttonaddtask" data-index ={this.props.index} onClick={this.props.handleDelete} >
-                        <img src={pl} alt="logo" className="image1" />
-                    </button>
+                    {this.props.page === `addtask` && (
+                        <button className="buttonaddtask" data-index ={`${this.props.EachTask._id}`} onClick={this.props.handleDelete} >
+                            <img src={pl} alt="logo" className="image1" />
+                        </button>
+                    )}
+                    
                     <div className="note">
-                    {this.props.EachTask}
+                    {this.props.EachTask.task}
                     </div>
+                    <div  className="date">{this.props.EachTask.dateTime}</div>
 
-                    <button className="buttonaddtask1" data-index={this.props.index} onClick= {this.props.handlefav} >
+                    <button className="buttonaddtask1" data-index ={`${this.props.EachTask._id}`} onClick= {this.props.handlefav} >
                         <img src={favIcon2} alt="logo" className="image1" />
                     </button>
                     <div >
@@ -58,11 +62,8 @@ class Deletebtn extends React.Component{
             .buttonaddtask1: {
                 background-color: #f6ad55;
               } 
-              .image1{
-
-              }
               .note{
-                font-size:20px;
+                font-size:15px;
                 padding-left:10px;
                 width:550px;
               }
@@ -73,10 +74,12 @@ class Deletebtn extends React.Component{
             .eachTask{
                 display: flex;
                 padding:10px 0;
-                
                 border-bottom: 1px solid #f0f0f0;
                 line-height: 21px;
-
+                
+             }
+            .date{
+                font-size: x-small;
             }
         `}</style>
             </React.Fragment>

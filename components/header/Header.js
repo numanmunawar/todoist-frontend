@@ -46,22 +46,8 @@ class Header extends React.Component{
                                 <button className="button">  favourites</button>
                             </Link>
                         </div>
-
-
-                        <div className="obox">
-                            <div className="inbox">
-                            <img src={task} alt="logo" className="image" />
-                            </div>
-
-                            <Link href="/projects">
-                                <button className="button"> projects </button>
-                            </Link>
-                        </div>
                     </div>
-                    
-
-
-                </div>
+                 </div>
                 <style jsx>{`
                        .sidebar{
                         position: absolute;

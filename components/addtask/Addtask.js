@@ -1,61 +1,100 @@
 import React from 'react';
 import Deletebtn from '../delete-button /Deletebtn';
+import axios from 'axios';
 
 class Addtask extends React.Component{
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       task: "",
       tasks: [],
-      favTasks : []
+      
     };
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = () => {
-    if (this.state.task === '') {return}
-    let textarray = this.state.tasks;
-    textarray.push(this.state.task);
-    this.setState({ task: ''});
+    event.preventDefault()
+    const data = {
+      task : this.state.task
+    }
+    axios({
+      method: 'post',
+      url: 'http://localhost:4000/tasks',
+      data: data,
+      headers: {'content-type': 'application/json'}
+    })
+    .then(res => {
+      console.log(res.data)
+      this.getFunction()
+      this.setState({
+        task : ""
+      })
+    })
+    .catch(err => {
+      console.log(err)
+    })
   } 
-
-  handleKeyPress = (event) => {
-    if(event.key === "Enter"){
-      let textarray = this.state.tasks;
-    textarray.push(this.state.task);
-    this.setState({ task: ''});
-  }
-  }
+  
   handleDelete = (event) => {
-    const index = event.target.dataset.index
-    this.setState(state => {
-      console.log(`got index ${index}`)
-        var list = [...state.tasks]
-        list.splice(index,1)
-        return {
-            tasks:list
-        }
-    })}
+    const index = event.currentTarget.dataset.index
+    console.log(index)
+    axios({
+      method: 'delete',
+      url: `http://localhost:4000/tasks/${index}`,
+    })
+    .then(res => {
+      console.log(res.data)
+      this.getFunction()
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
 
     handlefav = (event) => {
-      const index = event.currentTarget.dataset.index
-      alert( this.state.tasks[index] )
-      this.setState(state => {
-        var list = [...state.favTasks]
-        list.push(this.state.tasks[index])
-        return {
-          favTasks : list
-        }
+      const index =event.currentTarget.dataset.index
+      console.log(index)
+      axios({
+        method: 'put',
+        url: `http://localhost:4000/tasks/${index}`,
+      })
+      .then(res => {
+        console.log(res.data)
+        alert(`added fav task : ${index}`)
+      })
+      .catch(err => {
+        console.log(err)
       })
 
+    }
+
+    getFunction = () => {
+      axios({
+        method: 'get',
+        url: 'http://localhost:4000/tasks',
+      })
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+          tasks : res.data
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+
+    componentDidMount() {
+      this.getFunction()
     }
 
 
 render(){
 
-  const alltasks = this.state.tasks.map((task, i) => <Deletebtn handlefav={this.handlefav} index={i} handleDelete={this.handleDelete} key={i} EachTask={task} />)
+  const alltasks = this.state.tasks.map((task, i) => <Deletebtn handlefav={this.handlefav} index={i} page={`addtask`}  handleDelete={this.handleDelete} key={i} EachTask={task} />)
     return (
       <React.Fragment>
         <div className="taskbox">
@@ -63,7 +102,7 @@ render(){
             <ul> 
             <h4>{alltasks}</h4>
             </ul>
-          <form className=" addtask" onSubmit={this.addTask} >
+          <form className=" addtask" onSubmit={this.handleSubmit} >
               <input
                 required
                 id="addtask"
@@ -74,7 +113,6 @@ render(){
                 className=" addtask"
                 value={this.state.task} 
                 onChange={this.handleChange}
-                onKeyPress={this.handleKeyPress.bind(this)}
               />
              
           </form>

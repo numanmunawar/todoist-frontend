@@ -1,7 +1,7 @@
 import React from "react"
 import Baselayout from "../components/layout/Baselayout";
 import Addtask from "../components/addtask/Addtask";
-import myImage from "/home/numan/next-js-tailwind/public/inbox-solid.svg";
+import myImage from "/home/numan/todoist-frontend/public/inbox-solid.svg";
 
 
 
@@ -54,6 +54,9 @@ class index extends React.Component{
           .obox{
             
           }
+
+
+          
       `}</style>
       </React.Fragment>
 

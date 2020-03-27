@@ -6,13 +6,9 @@ import Navbar from '../navbar/Navbar';
 
 const baselayout = (props) => {
     return(
-
     <React.Fragment>
         <Header/>
         <Navbar/>
-        
-
-
         <style jsx>{`
         .body{
             margin:0px;
