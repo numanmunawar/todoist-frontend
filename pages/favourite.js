@@ -1,9 +1,9 @@
 import React from 'react'
 import Baselayout from '../components/layout/Baselayout'
-import Addtask from '../components/addtask/Addtask'
-import favIcon from "/home/numan/next-js-tailwind/public/favIcon.svg"
-import Deletebtn from "/home/numan/next-js-tailwind/components/delete-button /Deletebtn.js"
+
+
 import axios from 'axios';
+import Deletebtn from '../components/delete-button /Deletebtn';
 
 class fav extends React.Component{
     constructor(props) {
@@ -59,7 +59,7 @@ class fav extends React.Component{
             <Baselayout />
             <div className="inbox-page">
                 <div className="inbox">
-                <img src={favIcon} alt="logo" className="image1" />
+                {/* <img src={fav1} alt="logo" className="image1" /> */}
                 </div>
                     <h1>Favourites</h1>
                 <div className="taskbox">
