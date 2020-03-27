@@ -1,5 +1,7 @@
 import React from 'react'
 import Baselayout from '../components/layout/Baselayout'
+import fav1 from '../public/favIcon.svg'
+
 
 
 import axios from 'axios';
@@ -59,7 +61,7 @@ class fav extends React.Component{
             <Baselayout />
             <div className="inbox-page">
                 <div className="inbox">
-                {/* <img src={fav1} alt="logo" className="image1" /> */}
+                <img src={fav1} alt="logo" className="image1" />
                 </div>
                     <h1>Favourites</h1>
                 <div className="taskbox">

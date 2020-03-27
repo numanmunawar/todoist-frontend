@@ -1,7 +1,7 @@
 import React from "react"
 import Baselayout from "../components/layout/Baselayout";
 import Addtask from "../components/addtask/Addtask";
-import myImage from "/home/numan/todoist-frontend/public/inbox-solid.svg";
+import myImage from "../public/inbox-solid.svg";
 
 
 

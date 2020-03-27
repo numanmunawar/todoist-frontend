@@ -1,8 +1,7 @@
 import React from 'react'
-import pl from '/home/numan/next-js-tailwind/public/plus.svg'
 import Baselayout from '../components/layout/Baselayout'
 import Addtask from '../components/addtask/Addtask'
-import calender from "/home/numan/next-js-tailwind/public/calender.svg"
+import calender from "../public/calender.svg"
 
 
 
