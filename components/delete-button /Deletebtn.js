@@ -1,6 +1,8 @@
 import React from 'react';
-import pl from '/home/numan/todoist-frontend/public/minus.svg'
-import favIcon2 from "/home/numan/todoist-frontend/public/favIcon2.svg"
+import pl from '../../public/minus.svg'
+import favIcon2 from '../../public/favIcon2.svg'
+
+
 
 
 
